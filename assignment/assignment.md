@@ -25,8 +25,15 @@ Answer:
 
 ```python
 
+ r.hset(
+    "john_doe",
+    mapping={
+        "name": "John Doe",
+        "age": 35,
+        "email": "john@email.com"
+    }
+)
 ```
-
 ### Question 2
 
 Question: Write Python code to list the first 10 objects (blob name) in the "gcp-public-data-landsat" bucket, along with their sizes.
@@ -42,8 +49,12 @@ Answer:
 
 ```python
 
-```
 
+blobs = bucket.list_blobs(max_results=10)
+
+for blob in blobs:
+    print(f"{blob.name} - {blob.size} bytes")
+```
 ## Submission
 
 - Submit the URL of the GitHub Repository that contains your work to NTU black board.
